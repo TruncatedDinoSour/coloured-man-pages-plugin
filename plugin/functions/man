@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# \E[...m = ANSI colour
+# \x1b[38;2;...;...;...m = RGB colours
+
+env PAGER=less \
+    LESS_TERMCAP_mb="${CMAN_MB:-$'\E[01;31m'}" \
+    LESS_TERMCAP_md="${CMAN_MD:-$'\E[01;36m'}" \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so="${CMAN_SO:-$'\x1b[38;2;128;128;128m'}" \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us="${CMAN_US:-$'\E[04;36;146m'}" \
+    man "$@"
